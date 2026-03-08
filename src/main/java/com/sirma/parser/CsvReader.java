@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CsvReader {
 
-    public List<String> readLine(String filePath) {
+    public List<String> readLines(String filePath) {
         List<String> lines = new ArrayList<>();
 
        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {

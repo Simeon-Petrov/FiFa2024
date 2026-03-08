@@ -7,7 +7,7 @@ public class Team {
     private String group;
 
 
-    public Team(int id, String name, String group, String managerFullName) {
+    public Team(int id, String name, String managerFullName, String group) {
         this.id = id;
         this.name = name;
         this.managerFullName = managerFullName;

@@ -18,7 +18,7 @@ public class DateParser {
             DateTimeFormatter.ofPattern("dd-MM-yyyy"),  // 14-06-2024
             DateTimeFormatter.ofPattern("dd.MM.yyyy"),  // 14.06.2024
             DateTimeFormatter.ofPattern("d.M.yyyy"),    // 4.6.2024
-            DateTimeFormatter.ofPattern("d MM yyyy"),   // 4 06 2024
+            DateTimeFormatter.ofPattern("d M yyyy"),   // 4 06 2024
             DateTimeFormatter.ofPattern("dd MM yyyy"),  // 14 06 2024
             DateTimeFormatter.ofPattern("dd/MM/yyyy"),  // 14/06/2024
             DateTimeFormatter.ofPattern("d/MM/yyyy")    // 4/06/2024

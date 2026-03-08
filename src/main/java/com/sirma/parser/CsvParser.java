@@ -17,7 +17,9 @@ public class CsvParser {
         List<Player> players = new ArrayList<>();
 
         for (String line : csvReader.readLines(filePath)) {
-            String[] parts = line.split(",|;|\\||\\\\");
+            //String[] parts = line.split(",\\s*|;\\s*|\\|\\s*|\\t\\s*"); regex remove spaces (-trim)
+            //String[] parts = line.split("[,;|\\t]"); + trim
+            String[] parts = line.split(",|;|\\||\\\\|\\t"); // ,  ;  |  \   tab
             int id = Integer.parseInt(parts[0].trim());
             int teamNumber = Integer.parseInt(parts[1].trim());
             String position = parts[2].trim();
@@ -33,7 +35,7 @@ public class CsvParser {
         List<Team> teams = new ArrayList<>();
 
         for (String line : csvReader.readLines(filePath)) {
-            String[] parts = line.split(",|;|\\||\\\\");
+            String[] parts = line.split(",|;|\\||\\\\|\\t");
             int id = Integer.parseInt(parts[0].trim());
             String name = parts[1].trim();
             String managerFullName = parts[2].trim();
@@ -48,7 +50,7 @@ public class CsvParser {
         List<Match> matches = new ArrayList<>();
 
         for(String line : csvReader.readLines(filePath)) {
-            String[] parts = line.split(",|;|\\||\\\\");
+            String[] parts = line.split(",|;|\\||\\\\|\\t");
             int id = Integer.parseInt(parts[0].trim());
             int aTeamId = Integer.parseInt(parts[1].trim());
             int bTeamId = Integer.parseInt(parts[2].trim());
@@ -64,7 +66,7 @@ public class CsvParser {
         List<Record> records = new ArrayList<>();
 
         for (String line : csvReader.readLines(filePath)) {
-            String[] parts = line.split(",|;|\\||\\\\");
+            String[] parts = line.split(",|;|\\||\\\\|\\t");
             int id = Integer.parseInt(parts[0].trim());
             int playerId = Integer.parseInt(parts[1].trim());
             int matchId = Integer.parseInt(parts[2].trim());
@@ -82,6 +84,7 @@ public class CsvParser {
         return records;
     }
 
+    // if score.contains("(") => 120
     private int getMaxMinutesForMatch (int matchId, List<Match> matches) {
         for (Match match : matches) {
             if (match.getId() == matchId) {

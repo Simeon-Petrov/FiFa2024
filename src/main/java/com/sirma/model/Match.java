@@ -25,11 +25,11 @@ public class Match {
         return id;
     }
 
-    public int getaTeamId() {
+    public int getATeamId() {
         return aTeamId;
     }
 
-    public int getbTeamId() {
+    public int getBTeamId() {
         return bTeamId;
     }
 

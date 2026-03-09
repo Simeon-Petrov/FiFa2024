@@ -86,5 +86,4 @@ Edit `config.properties` to set your database connection:
 ```properties
 db.url=jdbc:postgresql://localhost:5432/fifa2024
 db.user=postgres
-db.password=12345
 ```

@@ -14,7 +14,7 @@ public class Match {
         this.bTeamId = bTeamId;
         this.date = date;
         this.score = score;
-        if (score.contains("(")) { // score.contains("(") ? 120 : 90
+        if (score.contains("(")) { //or score.contains("(") ? 120 : 90
             this.maxMinutes = 120;
         }else {
             this.maxMinutes = 90;

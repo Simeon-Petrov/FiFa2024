@@ -25,10 +25,10 @@ public class DateParser {
     );
 
     public static LocalDate parse(String dateStr) {
-        for(DateTimeFormatter formatter : FORMATTERS) {
+        for (DateTimeFormatter formatter : FORMATTERS) {
             try {
                 return LocalDate.parse(dateStr.trim(), formatter);
-            } catch (DateTimeParseException e){
+            } catch (DateTimeParseException e) {
 
             }
         }
@@ -38,7 +38,7 @@ public class DateParser {
 
     public static String parseToString(String dateStr) {
         LocalDate date = parse(dateStr);
-        if(date != null) {
+        if (date != null) {
             return date.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         }
         return dateStr;

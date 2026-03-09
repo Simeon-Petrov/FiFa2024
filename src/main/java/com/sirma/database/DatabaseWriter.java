@@ -17,10 +17,10 @@ public class DatabaseWriter {
                      "VALUES (?, ?, ?, ?) ON CONFLICT (id) DO NOTHING";
 
         try (Connection conn = DatabaseManager.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+             PreparedStatement stmt = conn.prepareStatement(sql)) { //no sql injection
 
             for (Team team : teams) {
-                stmt.setInt(1, team.getId());  //sql start from 1
+                stmt.setInt(1, team.getId());  //in sql start from 1
                 stmt.setString(2, team.getName());
                 stmt.setString(3, team.getManagerFullName());
                 stmt.setString(4, team.getGroup());
@@ -47,8 +47,6 @@ public class DatabaseWriter {
                 stmt.setInt(5, player.getTeamId());
                 stmt.executeUpdate();
             }
-
-            System.out.println("Player inserted: " + players.size());
 
         } catch (SQLException e) {
             System.out.println("Error inserting players: " + e.getMessage());

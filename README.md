@@ -36,7 +36,25 @@ overlap      = max(0, overlapEnd - overlapStart)
 6. **Find the top pair(s)** — return the pair(s) with the highest total minutes together, along with a per-match breakdown.
 
 ---
+## Technical Highlights
 
+- **BufferedReader** — used in `CsvReader.java` for efficient line-by-line 
+  reading of CSV files. Wraps `FileReader` for buffered I/O, which is faster 
+  than reading character by character.
+
+- **PreparedStatement** — used in all database operations to prevent 
+  SQL Injection attacks.
+
+- **try-with-resources** — used for automatic closing of 
+  `BufferedReader`, `Connection`, and `PreparedStatement` 
+  without explicit `close()` calls.
+
+- **Multiple CSV delimiters** — the regex `,|;|\\||\\\\|\\t` supports 
+  comma, semicolon, pipe, backslash and tab as delimiters.
+
+- **DateParser** — supports 13 different date formats, 
+  normalizing all dates to `dd-MM-yyyy`.
+---
 ## Output Format
 
 ```
